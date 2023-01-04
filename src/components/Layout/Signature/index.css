@@ -1,0 +1,23 @@
+.signature {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
+}
+
+.signature>div>span:first-child {
+    margin-right: 5px;
+    margin-left: 40px;
+}
+
+
+@media (max-width: 400px) {
+    .signature {
+        padding: 0;
+    }
+
+}

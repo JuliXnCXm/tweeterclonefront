@@ -1,0 +1,23 @@
+.exploreLayout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 35px 25% 0 25%;
+    gap: 24px;
+}
+
+.exploreLayout--children {
+    overflow: scroll;
+    height: 100%;
+}
+
+
+@media (max-width: 400px) {
+    .exploreLayout {
+        display: block;
+        margin: 25px
+    }
+
+    .exploreLayout--children {
+        height: 270px;
+    }
+}

@@ -1,0 +1,24 @@
+.NoFound--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NoFound--container > span {
+    font-size: 10rem;
+}
+
+.NoFound--container > h1 {
+    font-size: 1.5rem;
+}
+
+.NoFound--container > a {
+    background-color: #2d76d9;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+    margin: 30px;
+}

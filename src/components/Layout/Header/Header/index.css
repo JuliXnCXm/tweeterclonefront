@@ -1,0 +1,82 @@
+.userContainer--header__icon>img {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.userContainer--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+    background-color: white;
+    padding-left: 50px;
+}
+
+.userContainer--header> img {
+    cursor: pointer;
+}
+
+.userContainer--header__icon {
+    display: flex;
+    cursor: pointer;
+    z-index: 1;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.userContainer--header__icon:hover #option {
+    animation-name: iconsGroup;
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(.17, .67, 1, .32);
+    animation-fill-mode: forwards;
+}
+
+.userPicture_none {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    display: flex;
+    background-color: #27292d;
+    justify-content: center;
+    color: white;
+    align-items: center;
+}
+
+#userPicture_none--header_icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+@keyframes iconsGroup {
+    0% {
+        opacity: 0;
+        width: 20%;
+    }
+
+    25% {
+        opacity: 0.2;
+        width: 40%;
+    }
+
+    50% {
+        opacity: 0.4;
+        width: 60%;
+    }
+
+    100% {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .userContainer--header {
+        position: relative;
+        z-index: 1000;
+    }
+}

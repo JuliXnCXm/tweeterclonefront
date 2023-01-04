@@ -1,0 +1,51 @@
+.formContainer {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.formContainer input {
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 10px;
+    max-width: 356px;
+    height: 48px;
+    border-left: none;
+    background-color: transparent;
+
+}
+
+.formContainer input:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.input-group span {
+    background-color: transparent;
+    border-radius: 10px;
+    color: gray;
+    border-right: none;
+}
+
+.form-check {
+    margin: 20px 0px;
+}
+.form-check > input {
+    height: 15px;
+    border: 1px solid gray;
+}
+
+.formContainer > button {
+    width: 100%;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: -0.035em;
+    background-color: #2F80ED;
+    border-radius: 8px;
+    margin: 10px 0px;
+}

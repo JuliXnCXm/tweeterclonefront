@@ -1,0 +1,54 @@
+
+#errorIcon {
+    position: relative;
+    color: #eb1c31;
+    font-size: 5em;
+    animation: errorIcon 1s infinite ease-in-out;
+}
+#loadingIcon {
+    position: relative;
+    color: #4E9F3D;
+    font-size: 5em;
+    animation: loading 0.6s infinite ease-in-out;
+}
+
+#message {
+    height: max-content;
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    animation: errorMessage;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes errorMessage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes errorIcon {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+
+}

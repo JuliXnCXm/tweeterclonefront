@@ -1,0 +1,31 @@
+.Home {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 0 25% 0 25%;
+    gap: 30px;
+}
+
+.sideSection {
+    width: 100%;
+    margin-top: 20px;
+    height: 90vh;
+}
+
+.mainSection::-webkit-scrollbar {
+    display: none;
+}
+
+.mainSection::-webkit-scrollbar:hover {
+    display: none;
+}
+
+@media (max-width: 400px) {
+    .Home {
+        display: flex;
+        margin: 0
+    }
+    .mainSection {
+        padding: 0 30px;
+        width: 400px;
+    }
+}

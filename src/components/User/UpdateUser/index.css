@@ -1,0 +1,119 @@
+.updateUser--container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+
+#uploader--button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 5px;
+    border: 1px solid #2F80ED;
+    color: #2F80ED;
+}
+
+#username__allow {
+    border: 1px solid #2fed78;
+}
+
+#username__notallow {
+    border: 1px solid #ed2f2f;
+}
+
+#username__notset {
+    border: 1px solid #2F80ED;
+}
+
+#success_upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 5px;
+    background-color:#2fed78;
+    color: #ffffff;
+}
+
+#uploader--button:hover {
+    background-color: #2F80ED;
+    color: white;
+    opacity: 0.5;
+
+}
+
+.updateUser--container__form > button {
+    background-color: #2F80ED;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    margin-top:10px ;
+}
+
+.updateUser--container__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.updateUser--container__form input , textarea{
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #2F80ED;
+    margin-bottom: 10px;
+}
+
+.updateUser--container__form input:focus, textarea:focus{
+    outline: none !important;
+}
+
+#inputFile__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.updateUser--container__form label {
+    display: flex;
+    justify-content: space-between;
+}
+
+#previewUserBackground {
+    height: 120px;
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#previewUserPicture {
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 160px;
+    height: 160px;
+}

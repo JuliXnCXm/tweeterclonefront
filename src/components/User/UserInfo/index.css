@@ -1,0 +1,175 @@
+.UserInfo--container {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    position: absolute;
+    width: 80%;
+    top: 311px;
+    display: flex;
+    height: 163px;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+#user--edit__button {
+    background-color:#2F80ED;
+    height: fit-content;
+    border-radius: 50%;
+    padding: 5px;
+    width: fit-content;
+}
+
+#user--edit__button > span {
+    padding: 10px;
+    color: white;
+}
+
+#updateUser_modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+}
+
+
+#updateUser_modal > span {
+    color: white;
+    margin-bottom: 10px;
+}
+
+#updateUser_modal > span:hover {
+    cursor: pointer;
+}
+
+.UserInfo--container__picture  {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 40px;
+    top: -64.36px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 4px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+}
+
+#loading-icon {
+    animation: spin 500ms linear infinite;
+}
+
+.UserInfo--container__sectionInfo {
+    margin-left: 200px;
+    text-align: start;
+}
+
+.UserInfo--container__sectionInfo > div {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    align-items: center;
+}
+
+
+.UserInfo--container__sectionInfo-name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.035em;
+    color: #333333;
+    margin-bottom: 0;
+}
+
+.UserInfo--container__sectionInfo-follows {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.035em;
+    color: #333333;
+}
+
+.UserInfo--container__sectionInfo-follows span{
+    padding: 5px;
+}
+
+.UserInfo--container__sectionInfo-description {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: -0.035em;
+
+    color: #828282;
+}
+
+.UserInfo--container__button {
+    width: 108px;
+    height: 35px;
+    background: #2F80ED;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    font-family: 'Noto Sans';
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16.34px;
+}
+
+#UserInfo--container__button-Icon {
+    font-size: 12px !important;
+    padding-right: 7px;
+}
+
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@media (max-width: 400px) {
+
+    .UserInfo--container__picture {
+        position: absolute;
+        left: 50px;
+        top: -114px;
+        z-index: 1000;
+        width: 116px;
+        height: 116px;
+    }
+
+    .UserInfo--container > section {
+        position: relative;
+    }
+
+    .UserInfo--container__sectionInfo > div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .UserInfo--container__sectionInfo-name,
+    .UserInfo--container__sectionInfo-follows ,
+    .UserInfo--container__sectionInfo-description{
+        margin: 10px 0 10px 0;
+    }
+    #updateUser_modal {
+        width: 90%;
+        height: 90%;
+        overflow: scroll;
+    }
+    #updateUser_modal > span {
+        color: black;
+    }
+
+}

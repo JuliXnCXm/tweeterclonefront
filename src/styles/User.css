@@ -1,0 +1,71 @@
+.UserDefaultBackgroud {
+    background-color: #333639;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 130px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.userContainer {
+    margin: 0 200px 0 200px;
+}
+
+.userContainer--body {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 24px;
+    margin: 0px 20% 0 20%;
+    height: 40vh;
+}
+
+.userContainer--body > div {
+    overflow: scroll;
+}
+
+@media (max-width: 400px) {
+
+    .UserInfo--container__sectionInfo {
+        margin-left: 0;
+    }
+
+    .userContainer {
+        margin: 0;
+        position: relative;
+    }
+
+    .UserInfo--container {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        position: initial;
+        margin: 25px;
+        position: relative;
+        top: -65px;
+    }
+
+    .userContainer--body {
+        display: block;
+        margin: 25px;
+        top: 180px;
+        position: absolute;
+    }
+
+    .UserDefaultBackgroud {
+        margin-bottom: 0;
+    }
+
+    .userLayout-container {
+        overflow: scroll;
+        height: 580px;
+    }
+
+    .UserDefaultBackgroud {
+        height: 200px;
+    }
+
+}

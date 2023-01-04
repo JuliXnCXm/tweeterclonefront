@@ -1,0 +1,92 @@
+.tweetOptions--container {
+    background: transparent;
+    border-top: 1px solid #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+    color: #4F4F4F;;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.tweetOptions--container__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#loaderOption {
+    animation-name: loading;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#item--loding {
+    background-color: #4F4F4F;
+    animation-name: fade-back;
+    animation-duration: 3000ms;
+    animation-delay: 100ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#allowreply--button {
+    background-color: rgb(47, 128, 237);
+    animation-name: fade-back;
+    color: #FFF;
+    animation-duration: 8000ms;
+    animation-delay: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border: none;
+}
+
+#allowreply--button:hover {
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#notallowreply--button {
+    background-color: #FFF;
+    border: none;
+}
+
+.tweetOptions--container__list li , #allowreply--button, #notallowreply--button {
+    border-radius: 5px;
+    display: inline-flex;
+}
+
+.tweetOptions--container__list li:hover,#notallowreply--button:hover {
+    cursor: pointer;
+    background: #F2F2F2;
+    border-radius: 8px;
+}
+
+.tweetOptions--container__list li span , #allowreply--button span, #notallowreply--button span {
+    padding: 10px;
+}
+
+
+@keyframes loading{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade-back{
+    0%, 100% {
+        opacity: 0.05;
+        color: white;
+    }
+    50% {
+        opacity: 0.95;
+    }
+}

@@ -1,0 +1,19 @@
+#favoriteReply {
+    color: #EB5757;
+}
+
+.replyOptions--container {
+    display: flex;
+}
+
+.replyOptions--container > div {
+    display: flex;
+}
+
+.replyOptions--container span {
+    padding: 10px;
+}
+
+.replyOptions--container > div > span:hover {
+    cursor: pointer;
+}

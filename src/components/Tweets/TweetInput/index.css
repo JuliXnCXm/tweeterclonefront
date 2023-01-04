@@ -1,0 +1,41 @@
+.tweet--container__body {
+    height: 60px;
+    position: relative;
+    z-index: 0;
+    caret-color: #206bcc;
+    overflow: scroll;
+}
+
+.tweet--container__body span {
+    position: relative;
+    z-index: 20
+}
+
+#tweet:focus {
+    outline: none !important;
+}
+
+#tweet {
+    position: relative;
+    z-index: 1;
+    caret-color: #206bcc !important;
+    min-height: 30px;
+    height: auto;
+}
+
+.hashtag {
+    color :#2F80ED;
+}
+
+.noHashtag {
+    color: black;
+}
+
+.tweet--container {
+    display: grid;
+    margin-bottom: 20px;
+}
+.tweet--container div {
+    grid-row-start: 1;
+    grid-column-start: 1;
+}

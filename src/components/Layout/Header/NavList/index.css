@@ -1,0 +1,59 @@
+.navlist--container > ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.navlist--container > ul li {
+    text-align: center;
+    line-height: 60px;
+    padding-right: 10px;
+    min-width: 90px;
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s;
+}
+
+.navlist--container a {
+    text-decoration: none;
+    color: gray;
+    font-weight: 600;
+    margin:20px;
+}
+
+.navlist--container__link {
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s;
+    color: #2F80ED
+}
+
+.Line-nav {
+    background: #2F80ED;
+    border-radius: 8px 8px 0px 0px;
+    width: 80px;
+    height: 3px;
+    display: none;
+}
+
+.navlist--container__link > div > div {
+    display: block;
+}
+
+
+@media (max-width: 400px) {
+    .navlist--container > ul li{
+        line-height: 0;
+    }
+    .navlist--container > ul li span {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .navlist--container > ul {
+        display: flex;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    .navlist--container {
+        width: 100%;
+    }
+
+}

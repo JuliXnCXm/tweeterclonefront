@@ -1,0 +1,86 @@
+.peopleShouldFollow {
+    background-color: #FFF;
+    border-radius: 15px;
+    text-align: start;
+    margin-top:20px;
+    padding:20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: 50%;
+    overflow: scroll;
+}
+
+.peopleShouldFollow::-webkit-scrollbar {
+    display: none;
+}
+
+.user--item__container > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.user--item__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user--item__container-info > h3 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: -0.035em;
+    color: #000000;
+}
+
+.user--item__container-info > h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.user--item > p {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.035em;
+    color: #828282;
+}
+
+.user--item__background {
+    background-color: #333639;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 75px;
+}
+
+.user--item {
+    margin-bottom: 20px;
+}
+
+.user--item__container-info > span {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.035em;
+    color: #828282;
+}
+
+.user--item__container > button {
+    width: 79px;
+    height: 24px;
+}
+
+@media (max-width: 400px) {
+
+    .peopleShouldFollow {
+        width: 80%;
+        height: 80%;
+    }
+}

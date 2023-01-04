@@ -1,0 +1,95 @@
+.user_Line-nav{
+    background: #2F80ED;
+    border-radius: 0px 4px 4px 0px;
+    width: 3px;
+    height: 32px;
+    display: none;
+    animation-name: userNavLineEffect;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in
+}
+
+.userNavlist--container {
+    background-color: white;
+    position: relative;
+    border-radius: 15px;
+    height: min-content;
+}
+
+.userNav--container__list {
+    text-align: start;
+    list-style: none;
+    padding-left: 0;
+}
+
+.userNav--container__list li > a  {
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 60px;
+    letter-spacing: -0.035em;
+    color: #828282;
+}
+
+.userNavlist--container__link > div > div {
+    display: block;
+}
+
+.userNavlist--container__link > div > span, .userNav--container__list li > a > div > span {
+    margin-left: 20px;
+}
+
+
+.userNavlist--container__link > div  {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.userNavlist--container__link {
+    animation-name: userNavEffect;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+
+@keyframes userNavEffect {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        height: auto;
+    }
+}
+
+@keyframes userNavLineEffect {
+    0% {
+        height: 2px;
+    }
+
+    25% {
+        height:10px;
+    }
+
+    50% {
+        height: 15px;
+    }
+
+    100% {
+        height: 32px;
+    }
+}

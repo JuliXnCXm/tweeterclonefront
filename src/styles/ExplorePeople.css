@@ -1,0 +1,61 @@
+.explorePeople {
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    max-height: 70vh;
+    overflow: scroll;
+}
+
+#loader--bottom > div {
+    position: sticky;
+}
+
+.explorePeople > div {
+    position: initial;
+}
+
+.explorePeople--list {
+    padding: 40px;
+}
+
+.explorePeople--container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 25px;
+}
+
+.explorePeople--container__info {
+    width: 100%;
+    text-align: start;
+}
+
+.explorePeople--container__info > div > img {
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.explorePeople--container__info > div {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 0px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.explorePeople--container__info > div > h3 > a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.explorePeople--container__info > div > h3 {
+    font-size: 1rem;
+}
+
+.explorePeople--container__info > p {
+    color: #828282;
+}

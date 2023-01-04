@@ -1,0 +1,19 @@
+.bookmarksLayout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 35px 25% 0 25%;
+    gap: 24px
+}
+
+
+@media (max-width: 400px) {
+    .bookmarksLayout {
+        display: block;
+        margin: 25px;
+    }
+
+    .bookmarksLayout > div {
+        height: 270px;
+        overflow: scroll;
+    }
+}
