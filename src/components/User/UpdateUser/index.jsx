@@ -64,6 +64,7 @@ const UpdateUser = ({user}) => {
       if (res.status === 200) {
         if (formUpdateUser.screenname !== "") {
           window.location.href = `/${formUpdateUser.screenname}`
+          cookie.set('username', formUpdateUser.screenname)
         } else {
           window.location.reload();
         }
