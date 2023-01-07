@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/tweeterclonefront/static/css/main.c65109b7.css",
+    "main.js": "/tweeterclonefront/static/js/main.ea846603.js",
+    "static/media/social.jpg": "/tweeterclonefront/static/media/social.771944d343b4f8f6bcee.jpg",
+    "static/media/tweeter.svg": "/tweeterclonefront/static/media/tweeter.f37b74a38a44b57d1a2ce3677ad58f3f.svg",
+    "index.html": "/tweeterclonefront/index.html",
+    "static/media/tweeter-small.svg": "/tweeterclonefront/static/media/tweeter-small.1dee2d06346757c1f49ca780d72a8af2.svg",
+    "main.c65109b7.css.map": "/tweeterclonefront/static/css/main.c65109b7.css.map",
+    "main.ea846603.js.map": "/tweeterclonefront/static/js/main.ea846603.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c65109b7.css",
+    "static/js/main.ea846603.js"
+  ]
+}
