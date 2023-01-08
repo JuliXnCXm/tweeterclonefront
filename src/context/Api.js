@@ -1,4 +1,4 @@
-const server = "https://tweeterbackend.herokuapp.com//";
+const server = "https://tweeterbackend.herokuapp.com/";
 const apiLogin = `${server}api/auth/login`;
 const serverUser = `${server}api/users`;
 const apiRegister = `${server}api/auth/register`;
