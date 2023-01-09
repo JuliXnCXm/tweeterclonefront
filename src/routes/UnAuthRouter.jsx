@@ -6,7 +6,7 @@ const IndexRouter = () => {
     return (
         <Routes>
             <Route path="/" element={<Auth />} />
-            <Route path="*" element={<>Not Found</>} />
+            <Route path="*" element={<div>Not Found</div>} />
         </Routes>
     );
 };
