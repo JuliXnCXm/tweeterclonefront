@@ -1,15 +1,14 @@
 import { React, createContext, useState, useEffect } from "react";
 import { apiRegister, apiLogin, serverUser } from "./Api";
-import { useNavigate } from "react-router";
 import Cookies from "universal-cookie";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(false);
-    const navigate = useNavigate();
     const cookie = new Cookies();
     const [isLoading, setIsLoading] = useState(true);
+    const [errorAuth, setErrorAuth] = useState(false);
     const [token, setToken] = useState(cookie.get("token"));
     const [user, setUser] = useState({});
     const [username, setUsername] = useState(cookie.get("username"));
@@ -73,17 +72,25 @@ const AuthProvider = ({ children }) => {
         })
         .then(async (res) => {
             if (res.status === 201) {
-            let json = await res.json();
-            cookie.set("token", json.token, { path: "/" });
-            setAuth(true);
-            navigate("/home")
+                let json = await res.json();
+                cookie.set("token", json.token, { path: "/" });
+                cookie.set("username", json.username, { path: "/" });
+                setAuth(true);
+                setUsername(json.username);
+                window.location.href = "/home"
             } else {
-            console.log("Error");
-            navigate("/")
+                console.log("Error");
+                setAuth(false);
+                setUsername();
+                window.location.href = "/"
             }
         })
         .catch((err) => {
             console.log(err);
+            setErrorAuth(true)
+            setTimeout(() => {
+                setErrorAuth(false)
+            }, 3000)
         });
     };
 
@@ -101,13 +108,26 @@ const AuthProvider = ({ children }) => {
                 cookie.set("token", json.token, { path: "/" });
                 cookie.set("username", json.username, { path: "/" });
                 setAuth(true);
+                setUsername(json.username);
+                window.location.href = "/home";
             } else {
-                setAuth(false);
                 console.log("Error");
+                setAuth(false);
+                setUsername()
+                setErrorAuth(true);
+                setTimeout(() => {
+                    setErrorAuth(false);
+                    window.location.href = "/";
+                }, 4000);
             }
-            navigate("/home");
         })
-        .finally();
+        .catch(err => {
+            console.log(err)
+            setErrorAuth(true);
+            setTimeout(() => {
+                setErrorAuth(false);
+            }, 4000);
+        })
     };
 
     const handleLogout = () => {
@@ -119,11 +139,12 @@ const AuthProvider = ({ children }) => {
     };
 
     const dataAuth = {
-        handleLogin,
         handleRegister,
         handleLogout,
-        auth,
+        handleLogin,
         isLoading,
+        errorAuth,
+        auth,
         user
     };
 

@@ -8,7 +8,7 @@ const DropDown = () => {
     return (
         <div className="dropDown">
             <ul className="dropDown__menu">
-                <li id="option" onClick={() => {window.location.href = `${user.user_info.screenname}`}}>
+                <li id="option" onClick={() => {window.location.href = `/${user.user_info.screenname}`}}>
                     <span class="material-icons">account_circle</span>
                     <span>My Profile</span>
                 </li>

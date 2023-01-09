@@ -7,12 +7,17 @@ import UnAuthRouter from "../routes/UnAuthRouter"
 const Index = () => {
 
     const { auth } = useContext(AuthContext);
-    return <div>{auth ?
-    <Layout>
-        <AuthRouter />
-    </Layout>
-    :
-    <UnAuthRouter />}</div>;
+    return (
+        <div>
+        {auth ?
+            <Layout>
+                <AuthRouter />
+            </Layout>
+            :
+            <UnAuthRouter />
+        }
+        </div>
+    );
 };
 
 export default Index;

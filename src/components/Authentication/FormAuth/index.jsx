@@ -4,11 +4,14 @@ import useAuth from '../../../hooks/useAuth'
 import './index.css'
 import Message from '../Message';
 import Modal from '../../Modal';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const FormAuth = ({setLogin}) => {
 
-    const { handleSubmit, form , handleForm, error} = useAuth()
-    const [loading, setLoading] = React.useState(false);
+    const { handleSubmit, form , handleForm, error } = useAuth()
+    const [loading, setLoading] = useState(false);
+    const [disableButton, setDisableButton] = useState(false);
 
     const handleClick = () => {
         setLoading(true)
@@ -16,6 +19,27 @@ const FormAuth = ({setLogin}) => {
             setLoading(false)
         } , 4000)
     }
+
+    useEffect(()=> {
+        if (setLogin) {
+            if (form.email === "" || form.password === "") {
+                setDisableButton(true);
+            } else {
+                setDisableButton(false);
+            }
+        } else {
+            if (
+                form.email === "" ||
+                form.password === "" ||
+                form.name === "" ||
+                form.lastname === ""
+                ) {
+                setDisableButton(true);
+            } else {
+                setDisableButton(false);
+            }
+        }
+    }, [form])
 
     return (
         <>
@@ -27,18 +51,18 @@ const FormAuth = ({setLogin}) => {
                         email
                     </span>
                 </InputGroup.Text>
-                <FormControl type="text" name="email" value={form.email} placeholder="Enter email" onChange={handleForm}/>
+                <FormControl required={error} type="text" name="email" value={form.email} placeholder="Enter email" onChange={handleForm}/>
             </InputGroup>
             <InputGroup className="mb-3 formContainer-password" controlId="formBasicPassword">
-                <InputGroup.Text className="icon">
+                <InputGroup.Text className="icon" >
                     <span class="material-icons material-icons-outlined">
                         lock
                     </span>
                 </InputGroup.Text>
-                    <Form.Control type="password" value={form.password} name="password" onChange={handleForm} placeholder="Password" autoComplete="new-password" />
+                    <Form.Control required={error} type="password" value={form.password} name="password" onChange={handleForm} placeholder="Password" autoComplete="new-password" />
             </InputGroup>
             {
-                !setLogin ?
+                !setLogin &&
                 <>
                 <InputGroup className="mb-3 formContainer-name" controlId="formBasicName">
                     <InputGroup.Text className="icon">
@@ -46,7 +70,7 @@ const FormAuth = ({setLogin}) => {
                             person
                         </span>
                     </InputGroup.Text>
-                        <Form.Control type="text" value={form.name} name="name" onChange={handleForm} placeholder="Name" />
+                        <Form.Control required={error} type="text" value={form.name} name="name" onChange={handleForm} placeholder="Name" />
                 </InputGroup>
                 <InputGroup className="mb-3 formContainer-lastname" controlId="formBasicLastname">
                     <InputGroup.Text className="icon">
@@ -54,7 +78,7 @@ const FormAuth = ({setLogin}) => {
                             person
                         </span>
                     </InputGroup.Text>
-                        <Form.Control type="text" value={form.lastname} name="lastname" onChange={handleForm} placeholder="lastname"/>
+                        <Form.Control required={error} type="text" value={form.lastname} name="lastname" onChange={handleForm} placeholder="lastname"/>
                 </InputGroup>
                 <InputGroup className="mb-3 formContainer-phone" controlId="formBasicPhone">
                     <InputGroup.Text className="icon">
@@ -62,27 +86,26 @@ const FormAuth = ({setLogin}) => {
                             phone_iphone
                         </span>
                     </InputGroup.Text>
-                        <Form.Control type="text" value={form.phone} name="phone" onChange={handleForm} placeholder="Phone (Optional)" />
+                        <Form.Control required={error} type="text" value={form.phone} name="phone" onChange={handleForm} placeholder="Phone (Optional)" />
                 </InputGroup>
                 </>
-                : null
             }
             <Form.Group className="mb-3 formContainer-check" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Remind me" />
             </Form.Group>
             {setLogin ?
-                    <Button size="lg" className="formContainer-button" variant="primary" type="submit" onClick={handleClick} > Login
+                    <Button disabled={disableButton}  size="lg" className="formContainer-button" variant="primary" type="submit" onClick={handleClick} > Login
                 </Button>
             :
-                    <Button size="lg" className="formContainer-button" variant="primary" type="submit" onClick={handleClick} > Start coding now
+                    <Button disabled={disableButton} size="lg" className="formContainer-button" variant="primary" type="submit" onClick={handleClick} > Register now
                 </Button>
             }
+
         </Form>
-        {loading ?
+        {loading &&
             <Modal change={true}>
-                <Message error={error}/>
+                <Message/>
             </Modal>
-            : null
         }
         </>
     )

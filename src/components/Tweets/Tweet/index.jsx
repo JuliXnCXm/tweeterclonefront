@@ -40,6 +40,7 @@ const Tweet = ({route, updateHastags, width, breakpoint, trendingHashtags}) => {
     const [preview, setPreview] = useState()
     const [showTrending, setShowTrending] = useState(false)
     const [showPeople, setShowPeople] = useState(false)
+    const [showCreateTweet, setShowCreateTweet] = useState(false)
     const navigate = useNavigate()
     let params = undefined
 
@@ -147,19 +148,13 @@ const Tweet = ({route, updateHastags, width, breakpoint, trendingHashtags}) => {
             />
         }
         {pathname === "home" &&
-        <>
-            <WriteTweet user={user} updateTweets={updateTweets}/>
-            {width < breakpoint &&
-                <div id="sideSection__menu">
-                    <span onClick={() => setShowTrending(true)}>
-                        <span className="material-icons material-icons-outlined">
-                        trending_up
-                    </span>Trending</span>
-                    <span onClick={() => setShowPeople(true)}>
-                        <span className="material-icons material-icons-outlined">
-                            groups
-                        </span>Who to Follow</span>
-                </div>
+            <>
+                {width > breakpoint ?
+                    <WriteTweet user={user} updateTweets={updateTweets}/>
+                :
+                    <span className="material-icons material-icons-outlined" id="icon--createTweet" onClick={() => setShowCreateTweet(true)}>
+                    add
+                    </span>
             }
         </>
         }
@@ -264,6 +259,26 @@ const Tweet = ({route, updateHastags, width, breakpoint, trendingHashtags}) => {
                 </Modal>
             }
         </>
+        }
+        {showCreateTweet &&
+            <Modal>
+                <div id="modal__createTweet--container">
+                    <span className="material-icons material-icons-outlined" onClick={() => setShowCreateTweet(false)}>
+                    cancel
+                    </span>
+                    <WriteTweet user={user} updateTweets={updateTweets}/>
+                    <div id="sideSection__menu">
+                        <span onClick={() => setShowTrending(true)}>
+                            <span className="material-icons material-icons-outlined">
+                            trending_up
+                        </span>Trending</span>
+                        <span onClick={() => setShowPeople(true)}>
+                            <span className="material-icons material-icons-outlined">
+                                groups
+                            </span>Who to Follow</span>
+                    </div>
+                </div>
+            </Modal>
         }
         </>
     )

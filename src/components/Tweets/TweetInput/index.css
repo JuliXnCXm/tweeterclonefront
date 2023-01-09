@@ -1,14 +1,24 @@
-.tweet--container__body {
-    height: 60px;
+.tweet--container__body, .tweet--container__background {
+    min-height: 60px;
     position: relative;
     z-index: 0;
     caret-color: #206bcc;
     overflow: scroll;
+    word-break: break-all;
 }
 
 .tweet--container__body span {
     position: relative;
     z-index: 20
+}
+
+.tweet--container__background {
+    color: transparent;
+}
+
+.length--not--allowed {
+    background-color: rgb(240, 109, 109);
+    opacity: 0.4;
 }
 
 #tweet:focus {
@@ -21,6 +31,7 @@
     caret-color: #206bcc !important;
     min-height: 30px;
     height: auto;
+    word-break: break-all;
 }
 
 .hashtag {
@@ -38,4 +49,10 @@
 .tweet--container div {
     grid-row-start: 1;
     grid-column-start: 1;
+}
+
+@media (max-width: 400px) {
+    .tweet--container {
+        margin-right: 20px;
+    }
 }

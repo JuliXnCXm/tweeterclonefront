@@ -3,6 +3,10 @@
     margin-top: 20px;
 }
 
+.formContainer input:invalid {
+    border: 1px solid rgb(236, 73, 73)
+}
+
 .formContainer input {
     border: 1px solid #BDBDBD;
     box-sizing: border-box;

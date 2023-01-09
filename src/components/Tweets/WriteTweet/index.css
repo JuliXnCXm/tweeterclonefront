@@ -66,6 +66,11 @@
     width: 85%;
 }
 
+.length--exceed {
+    color: red;
+    font-weight: bold;
+}
+
 .writeTweet--container__icons {
     color: #2F80ED;
     display: inline-flex;

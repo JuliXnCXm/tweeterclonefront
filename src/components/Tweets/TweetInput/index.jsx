@@ -26,8 +26,6 @@ const TweetInput = ({inputRef , handleChangeTweet , placeholder, placeholderAttr
                 } else {
                 inputRef.current.style.color = "transparent";
                 }
-                console.log(placeholder.split("<br>"))
-                console.log(inputRef.current.innerHTML)
 
                 if (
                 inputRef.current.textContent === placeholder ||
@@ -67,6 +65,8 @@ const TweetInput = ({inputRef , handleChangeTweet , placeholder, placeholderAttr
             onInput={handleChangeTweet}
             ></div>
             {inputRef.current !== null && (
+            <>
+
             <div className="tweet--container__body" contentEditable="false">
                 {(inputRef.current.innerHTML !== placeholder ||
                 inputRef.current.textContent !== placeholder) &&
@@ -78,6 +78,23 @@ const TweetInput = ({inputRef , handleChangeTweet , placeholder, placeholderAttr
                     );
                 })}
             </div>
+            <div className="tweet--container__background" contentEditable="false">
+                {(inputRef.current.innerHTML !== placeholder ||
+                inputRef.current.textContent !== placeholder) &&
+                <>
+                        <span className='length--allowed'>
+                            {inputRef.current.textContent?.substr(0,100)}
+                        </span>
+                        {inputRef.current.textContent?.length > 100 &&
+
+                        <span className='length--not--allowed'>
+                            {inputRef.current.textContent.substr(100, inputRef.current.textContent.length)}
+                        </span>
+                        }
+                </>
+                }
+            </div>
+            </>
             )}
         </div>
     );

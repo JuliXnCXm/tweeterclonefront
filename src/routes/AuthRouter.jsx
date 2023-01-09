@@ -25,15 +25,15 @@ const IndexRouter = () => {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="explore" element={<ExploreLayout />}>
-          <Route index element={<ExploreTop/>} />
+          <Route index element={<ExploreTop />} />
           <Route path="latest" element={<ExploreLatest />} />
           <Route path="people" element={<ExplorePeople />} />
           <Route path="media" element={<ExploreMedia />} />
         </Route>
         <Route path="bookmarks" element={<BookmarksLayout />}>
-          <Route index element={<BookmarksTweets/>} />
+          <Route index element={<BookmarksTweets />} />
           <Route path="with_replies" element={<BookmarksTweetsAndReplies />} />
-          <Route path="likes" element={<BookmarksLikes/>} />
+          <Route path="likes" element={<BookmarksLikes />} />
           <Route path="media" element={<BookmarksMedia />} />
         </Route>
         <Route path=":screenname" element={<UserLayout />}>
@@ -42,7 +42,7 @@ const IndexRouter = () => {
           <Route path="likes" element={<UserLikes />} />
           <Route path="media" element={<UserMedia />} />
         </Route>
-        <Route path="*" element={<div>Not Found</div>} />
+        <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </AnimatePresence>
   );

@@ -58,7 +58,7 @@ const WriteTweet = ({user, updateTweets}) => {
     const tweetText = inputRef?.current?.textContent;
 
     useEffect(()=> {
-        if ((!preview || preview?.length === 0) && !metadataMedia && (tweetText === "" || tweetText === "What’s happening?")){
+        if ((!preview || preview?.length === 0) && !metadataMedia && (tweetText === "" || tweetText === "What’s happening?" || tweetText?.length > 100)){
             setDisableTweet(true)
         }
         else {
@@ -109,48 +109,35 @@ const WriteTweet = ({user, updateTweets}) => {
                                 image
                             </span>
                             <div className='toggle_private'>
-                            {publicTweet === true ? (
-                                <>
-                                    <span
-                                        className="material-icons material-symbols-outlined"
-                                        id="option_write_tweet"
-                                    >
-                                        public
-                                    </span>
-                                    <span
-                                        onMouseOver={() => setShow(true)}
-                                        onMouseLeave={() => setShow(false)}
-                                        className="toggle-private_tweet"
-                                        id="option_write_tweet"
-                                    >
-                                        Everyone can reply
-                                    </span>
-                                </>
-                            ) : (
-                                <>
-                                    <span
-                                        className="material-icons material-symbols-outlined"
-                                        id="option_write_tweet"
-                                    >
-                                        people
-                                    </span>
-                                    <span
-                                        className='toggle-private_tweet'
-                                        onMouseOver={() => setShow(true)}
-                                        onMouseLeave={() => setShow(false)}
-                                        id="option_write_tweet"
-                                    >
-                                        People you follow can reply
-                                    </span>
-                                </>
-                            )}
-                            {show && (
-                                <ReplyOptionDropdopwn
-                                    handleTogglePublicTweet={handleTogglePublicTweet}
-                                    setShow={setShow}
-                                />
-                            )}
+                                <span
+                                    className="material-icons material-symbols-outlined"
+                                    id="option_write_tweet"
+                                >
+                                    {publicTweet === true ? "public" : "people" }
+                                </span>
+                                <span
+                                    onMouseOver={() => setShow(true)}
+                                    onMouseLeave={() => setShow(false)}
+                                    className="toggle-private_tweet"
+                                    id="option_write_tweet"
+                                >
+                                    {publicTweet === true ? "Everyone can reply" : "People you follow can reply"}
+                                </span>
+                                {show && (
+                                    <ReplyOptionDropdopwn
+                                        handleTogglePublicTweet={handleTogglePublicTweet}
+                                        setShow={setShow}
+                                    />
+                                )}
                             </div>
+                            <span className={tweetText?.length > 100 && "length--exceed"}>
+                            {(tweetText === "" || tweetText === "What’s happening?") ?
+                                0
+                                :
+                                tweetText?.length
+                            }
+                            {console.log(tweetText === "What’s happening?")}
+                            </span>
                         </div>
                         <button
                         type="submit"

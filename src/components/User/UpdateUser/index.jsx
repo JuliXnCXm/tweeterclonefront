@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Cookies from 'universal-cookie';
 import { serverUser } from '../../../context/Api';
 import './index.css'
-
+import SpinnerLoaderTweet from  '../../Tweets/SpinnerLoaderTweet'
 const UpdateUser = ({user}) => {
 
   const [mediaUpdateBackground, setMediaUpdateBackground] = useState();
@@ -16,6 +16,7 @@ const UpdateUser = ({user}) => {
   const [usernameAvailable, setUsernameAvailable] = useState();
   const [previewPicture , setPreviewPicture] = useState();
   const [disableUpdate , setDisableUpdate] = useState(false);
+  const [loading, setLoading] = useState(false)
   const inputRef = useRef(null)
   const [formUpdateUser, setFormUpdateUser] = useState({
     name: "",
@@ -45,6 +46,7 @@ const UpdateUser = ({user}) => {
   }, [mediaUpdatePicture]);
 
   const handleUpdate = (e) => {
+    setLoading(true)
     e.preventDefault()
     for (let key in formUpdateUser) {
       if (formUpdateUser[key] === "") {
@@ -60,14 +62,11 @@ const UpdateUser = ({user}) => {
         'username': username,
       },
     })
-    .then(res => {
-      if (res.status === 200) {
-        if (formUpdateUser.screenname !== "") {
-          window.location.href = `/${formUpdateUser.screenname}`
-          cookie.set('username', formUpdateUser.screenname)
-        } else {
-          window.location.reload();
-        }
+    .then(async res => {
+      if (res.status === 201) {
+        cookie.set("token" , res.data.token, { path: "/" });
+        cookie.set('username', res.data.username, { path: "/" });
+        window.location.href = `/${res.data.username}`
       }
     })
     .catch(err => {
@@ -167,87 +166,91 @@ const UpdateUser = ({user}) => {
 
   return (
     <div className="updateUser--container">
-      <form
-        action=""
-        className="updateUser--container__form"
-        onSubmit={handleUpdate}
-      >
-        <input type="text" name="name" value={formUpdateUser.name} placeholder={user?.user_info?.name} onChange={handleUpdateForm}/>
-        <input
-          name='lastname'
-          value={formUpdateUser.lastname}
-          type="text"
-          placeholder={user?.user_info?.lastname}
-          onChange={handleUpdateForm}
-        />
-        <input type="text"
-        ref={inputRef}
-        name="screenname"
-        id={toggleIdFuncUsername()}
-        placeholder={user?.user_info?.screenname}
-        onChange={(e) => {
-          handleUpdateForm(e)
-          usernameChecker(e.target.value)}
-          }/>
-        <textarea
-          name="description"
-          id=""
-          cols="10"
-          rows="3"
-          value={formUpdateUser.description}
-          placeholder={user?.user_info?.description}
-          onChange={handleUpdateForm}
-        ></textarea>
-        <div id="inputFile__container">
-          <span>Choose Background</span>
+        <form
+          action=""
+          className="updateUser--container__form"
+          onSubmit={handleUpdate}
+        >
+        {loading ? <SpinnerLoaderTweet /> :
+        <>
+          <input type="text" name="name" value={formUpdateUser.name} placeholder={user?.user_info?.name} onChange={handleUpdateForm}/>
           <input
-            type="file"
-            name="file"
-            id="fileBackground"
-            className="inputFile"
-            onChange={(e) => updateImagesUser(e.target.files[0], "background")}
+            name='lastname'
+            value={formUpdateUser.lastname}
+            type="text"
+            placeholder={user?.user_info?.lastname}
+            onChange={handleUpdateForm}
           />
-          <label htmlFor="fileBackground">
-            <div id={!backgroundUpdateSuccess ? "uploader--button" : "success_upload"}>
-              <span className="material-icons material-icons-outlined">
-                file_upload
-              </span>
-              Upload Image
-            </div>
-          </label>
-        </div>
-        {previewBackground && (
-          <div
-            style={{ backgroundImage: `url(${previewBackground})` }}
-            id="previewUserBackground"
-          ></div>
-        )}
-        <div id="inputFile__container">
-          <span>Choose Picture</span>
-          <input
-            type="file"
-            name="file"
-            id="filePicture"
-            className="inputFile"
-            onChange={(e) => updateImagesUser(e.target.files[0], "picture")}
-          />
-          <label htmlFor="filePicture">
-            <div id={!pictureUpdateSuccess ? "uploader--button" : "success_upload"}>
-              <span className="material-icons material-icons-outlined">
-                file_upload
-              </span>
-              Upload Image
-            </div>
-          </label>
-        </div>
-        {previewPicture && (
-          <div
-            style={{ backgroundImage: `url(${previewPicture})` }}
-            id="previewUserPicture"
-          ></div>
-        )}
-        <button type="submit" disabled={disableUpdate}>Update</button>
-      </form>
+          <input type="text"
+          ref={inputRef}
+          name="screenname"
+          id={toggleIdFuncUsername()}
+          placeholder={user?.user_info?.screenname}
+          onChange={(e) => {
+            handleUpdateForm(e)
+            usernameChecker(e.target.value)}
+            }/>
+          <textarea
+            name="description"
+            id=""
+            cols="10"
+            rows="3"
+            value={formUpdateUser.description}
+            placeholder={user?.user_info?.description}
+            onChange={handleUpdateForm}
+          ></textarea>
+          <div id="inputFile__container">
+            <span>Choose Background</span>
+            <input
+              type="file"
+              name="file"
+              id="fileBackground"
+              className="inputFile"
+              onChange={(e) => updateImagesUser(e.target.files[0], "background")}
+            />
+            <label htmlFor="fileBackground">
+              <div id={!backgroundUpdateSuccess ? "uploader--button" : "success_upload"}>
+                <span className="material-icons material-icons-outlined">
+                  file_upload
+                </span>
+                Upload Image
+              </div>
+            </label>
+          </div>
+          {previewBackground && (
+            <div
+              style={{ backgroundImage: `url(${previewBackground})` }}
+              id="previewUserBackground"
+            ></div>
+          )}
+          <div id="inputFile__container">
+            <span>Choose Picture</span>
+            <input
+              type="file"
+              name="file"
+              id="filePicture"
+              className="inputFile"
+              onChange={(e) => updateImagesUser(e.target.files[0], "picture")}
+            />
+            <label htmlFor="filePicture">
+              <div id={!pictureUpdateSuccess ? "uploader--button" : "success_upload"}>
+                <span className="material-icons material-icons-outlined">
+                  file_upload
+                </span>
+                Upload Image
+              </div>
+            </label>
+          </div>
+          {previewPicture && (
+            <div
+              style={{ backgroundImage: `url(${previewPicture})` }}
+              id="previewUserPicture"
+            ></div>
+          )}
+          <button type="submit" disabled={disableUpdate}>Update</button>
+        </>
+      }
+        </form>
     </div>
   );
 }

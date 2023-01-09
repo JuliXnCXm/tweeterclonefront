@@ -6,6 +6,31 @@
     border-radius: 15px;
 }
 
+#modal__createTweet--container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#icon--createTweet {
+    width: fit-content;
+    background-color: #2F80ED;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 90px;
+    right: 15px;
+    opacity: 0.5;
+}
+
+#icon--createTweet:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
 .tweet {
     background-color: white;
     border-radius: 15px;
@@ -150,7 +175,6 @@
 #sideSection__menu span:hover {
     background-color: #dfdede;
     border-radius: 5px;
-    padding: 5px;
     color: #2F80ED;
 }
 
@@ -176,11 +200,24 @@
 @media (max-width: 400px) {
 
     .allTweets {
-        height: 26%;
+        height: 100%;
+        margin-top: 20px;
     }
 
     #metadata--media__tweet {
         margin: 0;
+    }
+
+    #sideSection__menu {
+        margin: 10px;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+    #sideSection__menu span {
+        padding: 5px;
+        margin-right: 10px;
     }
 
 }

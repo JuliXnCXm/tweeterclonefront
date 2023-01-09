@@ -48,6 +48,10 @@
     border: 1px solid #2F80ED;
 }
 
+.updateUser--container__form > div {
+    position: relative;
+}
+
 #success_upload {
     display: flex;
     align-items: center;
