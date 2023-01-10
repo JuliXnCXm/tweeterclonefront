@@ -54,6 +54,7 @@ const useAuth = () => {
     handleForm,
     setIsLogin,
     setForm,
+    isLogin,
     error,
     form,
     show,

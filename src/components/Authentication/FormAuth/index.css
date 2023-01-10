@@ -6,21 +6,44 @@
 .formContainer input:invalid {
     border: 1px solid rgb(236, 73, 73)
 }
+.formContainer div[data-lastpass-icon-root] {
+    display: none;
+}
+
 
 .formContainer input {
-    border: 1px solid #BDBDBD;
     box-sizing: border-box;
-    border-radius: 10px;
-    max-width: 356px;
+    width: 100%;
     height: 48px;
-    border-left: none;
     background-color: transparent;
-
+    border: none;
 }
 
 .formContainer input:focus {
     outline: none;
     background-color: transparent;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.formContainer div {
+    border: 1px solid #BDBDBD;
+    border-radius: 10px;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.formContainer div label {
+    color: #949494;
+    margin-right: 10px;
 }
 
 .input-group span {
@@ -45,11 +68,16 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-
-    /* identical to box height */
     text-align: center;
     letter-spacing: -0.035em;
     background-color: #2F80ED;
     border-radius: 8px;
+    color: white;
+    height: 40px;
     margin: 10px 0px;
+    border: none;
+}
+
+.formContainer > button:disabled {
+    opacity: 0.5;
 }

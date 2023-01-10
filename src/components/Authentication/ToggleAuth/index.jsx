@@ -3,7 +3,6 @@ import React from 'react';
 
 const ToggleAuth = ({setLogin, loginState}) => {
 
-
     return (
         <>
             {loginState ?
